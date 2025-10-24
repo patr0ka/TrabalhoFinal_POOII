@@ -75,26 +75,41 @@ public class UsuarioDAO {
     // 🔹 Login por ID (para a tela de login)
     public Usuario autenticarPorId(int idUsuario, String senha) throws SQLException {
         String sql = """
-        SELECT *
-        FROM usuario
-        WHERE id_usuario = ?
-          AND senha = ?
+        SELECT u.id_usuario, u.nome, u.tipo_usuario, c.senha AS senha_cliente, f.senha AS senha_funcionario
+        FROM usuario u
+        LEFT JOIN cliente c ON u.id_usuario = c.id_usuario
+        LEFT JOIN funcionario f ON u.id_usuario = f.id_usuario
+        WHERE u.id_usuario = ?
     """;
 
-        try (Connection c = Database.getConnection();
-             PreparedStatement ps = c.prepareStatement(sql)) {
+        try (Connection conn = Database.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
             ps.setInt(1, idUsuario);
-            ps.setString(2, senha);
 
             try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
-                    return mapUsuario(rs);
+                    String senhaCliente = rs.getString("senha_cliente");
+                    String senhaFuncionario = rs.getString("senha_funcionario");
+
+                    boolean senhaCorreta =
+                            (senhaCliente != null && senhaCliente.equals(senha)) ||
+                                    (senhaFuncionario != null && senhaFuncionario.equals(senha));
+
+                    if (senhaCorreta) {
+                        Usuario u = new Usuario();
+                        u.setId(rs.getInt("id_usuario"));
+                        u.setNome(rs.getString("nome"));
+                        u.setTipoUsuario(rs.getString("tipo_usuario"));
+                        return u;
+                    }
                 }
             }
         }
-        return null;
+
+        return null; // login falhou
     }
+
 
 
     // 🔹 Retorna todos os usuários cadastrados
