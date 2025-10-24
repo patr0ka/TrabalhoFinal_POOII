@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.appacademia.controller.IncluirUsuarioController"
+      spacing="10" alignment="CENTER"
+      style="-fx-padding: 20; -fx-background-color: #f8f8f8;">
+
+    <Label text="Cadastrar Novo Usuário"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+    <GridPane hgap="10" vgap="10" alignment="CENTER">
+        <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="CPF:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtCpf" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtEmail" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Data de Nascimento:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpNascimento" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Tipo de Usuário:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <!-- ComboBox SEM items definidos diretamente (serão carregados no controller) -->
+        <ComboBox fx:id="cbTipoUsuario" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Senha:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="txtSenha" GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10" alignment="CENTER">
+        <Button text="Salvar" onAction="#salvarUsuario"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button text="Cancelar" onAction="#fecharJanela"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+    </HBox>
+
+</VBox>

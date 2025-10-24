@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appacademia.controller.TreinoController">
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Treinos" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnNovoTreino" text="Novo" onAction="#onNovoTreino" styleClass="accent"/>
+        <Button fx:id="btnVisualizar" text="Visualizar" onAction="#onVisualizar"/>
+        <Button fx:id="btnExcluir" text="Excluir" onAction="#onExcluir"/>
+    </HBox>
+    <TableView fx:id="tableTreinos" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTipo" text="Tipo" prefWidth="200"/>
+            <TableColumn fx:id="colUsuario" text="ID Usuário" prefWidth="120"/>
+            <TableColumn text="Observações" prefWidth="400"/>
+        </columns>
+    </TableView>
+</VBox>

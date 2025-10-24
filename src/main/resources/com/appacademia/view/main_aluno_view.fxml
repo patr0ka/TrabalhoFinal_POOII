@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.appacademia.controller.MainAlunoController"
+            styleClass="root-pane">
+
+    <top>
+        <HBox spacing="20" alignment="CENTER_LEFT" style="-fx-background-color: #2b2b40;">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+
+            <Label text="AppAcademia - Aluno"
+                   style="-fx-font-size: 20px; -fx-text-fill: white; -fx-font-weight: bold;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Sair" fx:id="btnSair" onAction="#logout"
+                    style="-fx-background-color: #e74c3c; -fx-text-fill: white; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox alignment="CENTER" spacing="15">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+
+            <Label text="Seus Treinos" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+            <TableView fx:id="tabelaTreinos" prefHeight="400" prefWidth="700">
+                <columns>
+                    <TableColumn text="Tipo" fx:id="colTipoTreino" prefWidth="200" />
+                    <TableColumn text="Data Criação" fx:id="colData" prefWidth="250" />
+                    <TableColumn text="Observações" fx:id="colObs" prefWidth="250" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

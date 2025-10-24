@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.appacademia.controller.MainController"
+            styleClass="root-pane">
+
+    <!-- Painel Lateral -->
+    <left>
+        <VBox fx:id="sideMenu" spacing="12"
+              alignment="TOP_CENTER"
+              styleClass="side-menu">
+
+            <!-- Padding corrigido -->
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- Logo -->
+            <ImageView fitWidth="100" fitHeight="100">
+                <image>
+                    <Image url="@../image/logo.png" />
+                </image>
+            </ImageView>
+
+            <Label text="AppAcademia"
+                   styleClass="app-title"
+                   alignment="CENTER" />
+
+            <Separator/>
+
+            <!-- Botões do menu -->
+            <Button fx:id="btnUsuarios" text="Usuários"
+                    maxWidth="Infinity" styleClass="menu-btn" />
+            <Button fx:id="btnAcademias" text="Academias"
+                    maxWidth="Infinity" styleClass="menu-btn" />
+            <Button fx:id="btnTreinos" text="Treinos"
+                    maxWidth="Infinity" styleClass="menu-btn" />
+
+            <Region VBox.vgrow="ALWAYS"/>
+
+            <!-- Campo de busca -->
+            <HBox spacing="8" alignment="CENTER">
+                <TextField fx:id="searchField"
+                           promptText="Pesquisar (Enter)"
+                           HBox.hgrow="ALWAYS"/>
+                <Button text="Buscar" styleClass="menu-btn"/>
+            </HBox>
+        </VBox>
+    </left>
+
+    <!-- Conteúdo Central -->
+    <center>
+        <StackPane fx:id="contentPane"
+                   alignment="CENTER"
+                   styleClass="content-pane">
+
+            <!-- Padding corrigido -->
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Bem-vindo ao AppAcademia!"
+                   styleClass="welcome-text"/>
+        </StackPane>
+    </center>
+</BorderPane>

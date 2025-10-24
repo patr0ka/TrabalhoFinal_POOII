@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.appacademia.controller.UsuariosController"
+            style="-fx-background-color: #2b2b40;">
+
+    <top>
+        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
+            <Label text="Usuários"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Adicionar Usuário"
+                    fx:id="btnAdicionarUsuario"
+                    onAction="#abrirTelaAdicionarUsuario"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+
+            <TextField fx:id="txtPesquisa" promptText="Pesquisar usuário..." prefWidth="300" />
+            <TableView fx:id="tabelaUsuarios" prefHeight="400" prefWidth="700">
+                <columns>
+                    <TableColumn fx:id="colNome" text="Nome" prefWidth="250" />
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="250" />
+                    <TableColumn fx:id="colTelefone" text="CPF" prefWidth="150" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

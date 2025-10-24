@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.appacademia.controller.AcademiaController">
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Academias" styleClass="section-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="Novo" onAction="#onNovoAcademia" styleClass="accent"/>
+        <Button text="Excluir" onAction="#onExcluirAcademia"/>
+    </HBox>
+    <TableView fx:id="tableAcademias" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNome" text="Nome" prefWidth="300"/>
+            <TableColumn fx:id="colCnpj" text="CNPJ" prefWidth="160"/>
+            <TableColumn fx:id="colLocal" text="Localização" prefWidth="300"/>
+        </columns>
+    </TableView>
+</VBox>
